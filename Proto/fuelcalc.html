@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>React app | Kütuse kalkulaator</title>
+  </head>
+  <body class="fuelcalc-page">
+    <main>
+      <div class="container">
+        <!-- Fuel Calculator Section -->
+        <h3>Kütuse kalkulaator</h3>
+        <form id="fuelCalcForm">
+          <div class="form-group">
+            <label for="lapTime">Ringiaeg (sekundites):</label>
+            <input type="number" id="lapTime" step="0.01" required />
+          </div>
+          <div class="form-group">
+            <label for="fuelPerLap">Kütusekulu ringi kohta (liitrites):</label>
+            <input type="number" id="fuelPerLap" step="0.01" required />
+          </div>
+          <div class="form-group">
+            <label for="raceTime">Võistluse aeg (minutites):</label>
+            <input type="number" id="raceTime" step="0.01" required />
+          </div>
+          <button type="submit" class="btn">Arvuta</button>
+        </form>
+        <div id="result"></div>
+      </div>
+    </main>
+    <script src="./fuelcalc.js"></script>
+  </body>
+</html>
