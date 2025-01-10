@@ -1,6 +1,6 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const cors = require("cors");
+const bodyParser = require("body-parser");
 
 const app = express();
 const port = 5000;
@@ -26,6 +26,27 @@ app.post("/api/fuelRecords", (req, res) => {
 app.delete("/api/fuelRecords/:id", (req, res) => {
   const id = parseInt(req.params.id, 10);
   fuelRecords = fuelRecords.filter((_, index) => index !== id);
+  res.status(204).send();
+});
+
+let pitStopRecords = [];
+
+// Laeb kõik boksipeatuse kirjed
+app.get("/api/pitStopRecords", (req, res) => {
+  res.json(pitStopRecords);
+});
+
+// Lisab uus boksipeatuse kirje
+app.post("/api/pitStopRecords", (req, res) => {
+  const newRecord = req.body;
+  pitStopRecords.push(newRecord);
+  res.status(201).json(newRecord);
+});
+
+// Kustutab boksipeatuse ID järgi
+app.delete("/api/pitStopRecords/:id", (req, res) => {
+  const id = parseInt(req.params.id, 10);
+  pitStopRecords = pitStopRecords.filter((_, index) => index !== id);
   res.status(204).send();
 });
 
